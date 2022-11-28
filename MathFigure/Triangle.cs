@@ -49,7 +49,12 @@ namespace MathFigure
 				throw new ArgumentException($"Сторона {nameof(thirdSide)} оказалась отрицательной");
 			}
 
-			// TO DO проверка на существование такого треугольника
+			if (firstSide + secondSide < thirdSide ||
+				firstSide + thirdSide < secondSide ||
+				secondSide + thirdSide < firstSide)
+			{
+				throw new ArgumentException("Такой треугольник не существует");
+			}
 
 			FirstSide = firstSide;
 			SecondSide = secondSide;
